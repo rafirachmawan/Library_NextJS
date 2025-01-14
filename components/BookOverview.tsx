@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "@/node_modules/next/image";
+import { Button } from "./ui/button";
+import BookCover from "./BookCover";
 
 const BookOverview = ({
   title,
@@ -30,6 +32,32 @@ const BookOverview = ({
             <Image src="./icons/star.svg" alt="star" width={22} height={22} />
             <p>{rating}</p>
           </div>
+        </div>
+
+        <div className="book-copies">
+          <p>
+            Total Books: <span>{total_copies}</span>
+          </p>
+          <p>
+            Available Book:: <span>{available_copies}</span>
+          </p>
+        </div>
+        <p className="book-description">{description}</p>
+
+        <Button className="book-overiview_btn">
+          <image src="/icons/book.svg" alt="book" width={20} height={20} />
+          <p className="font-bebas-neue text-xl text-dark-100">Borrow</p>
+        </Button>
+      </div>
+
+      <div className="relative flex flex-1 justify-center">
+        <div className="relative">
+          <BookCover
+            variant="wide"
+            classname="z-10"
+            coverColor={color}
+            coverImage={cover}
+          />
         </div>
       </div>
     </section>
