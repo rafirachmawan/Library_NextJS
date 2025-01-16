@@ -54,7 +54,7 @@ const BookOverview = ({
         <div className="relative">
           <BookCover
             variant="wide"
-            classname="z-10"
+            className="z-10"
             coverColor={color}
             coverImage={cover}
           />
