@@ -2,9 +2,9 @@
 
 import Link from "@/node_modules/next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/node_modules/next/navigation";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image from "@/node_modules/next/image";
 
 const Header = () => {
   const pathname = usePathname();

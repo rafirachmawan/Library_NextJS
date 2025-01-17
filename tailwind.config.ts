@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "./node_modules/tailwind-merge/dist/types";
 
 export default {
   darkMode: ["class"],
