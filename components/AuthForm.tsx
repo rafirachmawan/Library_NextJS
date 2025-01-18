@@ -1,7 +1,12 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, UseFormReturn } from "react-hook-form";
+import {
+  useForm,
+  UseFormReturn,
+  DefaultValues,
+  FieldValues,
+} from "react-hook-form";
 import { z, ZodType } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -38,7 +43,7 @@ const AuthForm = <T extends FieldValues>({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="username"
