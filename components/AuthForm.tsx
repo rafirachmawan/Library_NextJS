@@ -20,6 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Link from "@/node_modules/next/link";
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -48,6 +49,11 @@ const AuthForm = <T extends FieldValues>({
       <h1 className="text-2xl font-semibold text-white">
         {isSignin ? "Welcome Back to BookWise" : "Create your Library Account"}
       </h1>
+      <p className="text-light-100">
+        {isSignin
+          ? "Acces the vast collection of resources, and stay updated"
+          : "Please completed all fields and upload a valid university ID to gain acces to the library"}
+      </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
           <FormField
@@ -69,6 +75,17 @@ const AuthForm = <T extends FieldValues>({
           <Button type="submit">Submit</Button>
         </form>
       </Form>
+
+      <p className="text-center text-base fotn-medium">
+        {isSignin ? "New to Bookwise ? " : "Already have an account ? "}
+
+        <Link
+          href={isSignin ? "/sign-up" : "/sign-in"}
+          className="font-bold text-primary"
+        >
+          {isSignin ? "Create an account" : "Sign in"}
+        </Link>
+      </p>
     </div>
   );
 };
