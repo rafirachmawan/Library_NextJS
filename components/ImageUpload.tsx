@@ -2,6 +2,14 @@
 
 import config from "@/lib/config";
 import { IKImage, ImageKitProvider, IKUpload } from "imagekitio-next";
+import { useRef } from "react";
+import { useState } from "react";
+
+const {
+  env: {
+    imagekit: { publicKey, privateKey, urlEndpoint },
+  },
+} = config;
 
 const authenticator = async () => {
   try {
@@ -25,7 +33,29 @@ const authenticator = async () => {
 };
 
 const ImageUpload = () => {
-  return <div>ImageUpload</div>;
+  const ikUploadRef = useRef(null);
+  const [file, setFile] = useState<{ filepath: string } | null>(null);
+
+  const onError = () => {};
+  const onESuccess = () => {};
+
+  return (
+    <ImageKitProvider
+      publicKey={publicKey}
+      urlEndpoint={urlEndpoint}
+      authenticator={authenticator}
+    >
+      <IKUpload
+        className="hidden"
+        ref={ikUploadRef}
+        onError={onError}
+        onSuccess={onESuccess}
+        fileName="test-upload.png"
+      />
+
+      <button className="upload-btn"></button>
+    </ImageKitProvider>
+  );
 };
 
 export default ImageUpload;
