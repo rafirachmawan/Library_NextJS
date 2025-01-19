@@ -4,6 +4,7 @@ import config from "@/lib/config";
 import { IKImage, ImageKitProvider, IKUpload } from "imagekitio-next";
 import { useRef } from "react";
 import { useState } from "react";
+import Image from "@/node_modules/next/image";
 
 const {
   env: {
@@ -36,8 +37,8 @@ const ImageUpload = () => {
   const ikUploadRef = useRef(null);
   const [file, setFile] = useState<{ filepath: string } | null>(null);
 
-  const onError = () => {};
-  const onESuccess = () => {};
+  const onrror = () => {};
+  const onSuccess = () => {};
 
   return (
     <ImageKitProvider
@@ -48,12 +49,20 @@ const ImageUpload = () => {
       <IKUpload
         className="hidden"
         ref={ikUploadRef}
-        onError={onError}
-        onSuccess={onESuccess}
+        onError={onrror}
+        onSuccess={onSuccess}
         fileName="test-upload.png"
       />
 
-      <button className="upload-btn"></button>
+      <button className="upload-btn">
+        <Image
+          src="/icons/upload.svg"
+          alt="Upload Icon"
+          width={20}
+          height={20}
+          className="object-contain"
+        />
+      </button>
     </ImageKitProvider>
   );
 };
