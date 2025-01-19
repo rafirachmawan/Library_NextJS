@@ -85,16 +85,15 @@ const AuthForm = <T extends FieldValues>({
                       />
                     )}
                   </FormControl>
-                  <FormDescription>
-                    This is your public display name.
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
           ))}
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="form-btn">
+            {isSignin ? "Sign In" : "Sign Up"}
+          </Button>
         </form>
       </Form>
 
