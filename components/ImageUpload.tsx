@@ -103,7 +103,7 @@ const ImageUpload = ({
           alt={file.filepath}
           path={file.filepath}
           width={500}
-          height={500}
+          height={300}
         />
       )}
     </ImageKitProvider>

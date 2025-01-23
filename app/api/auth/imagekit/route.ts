@@ -1,5 +1,5 @@
 import ImageKit from "imagekit";
-import { config } from "@/lib/config";
+import config from "@/lib/config";
 import { NextResponse } from "@/node_modules/next/server";
 
 const {
